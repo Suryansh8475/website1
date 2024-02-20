@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,586 +6,768 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="netflix.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<style>
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
-body {
-    background-color: black;
-}
-
-
-
-.main {
-    background-image: url(netflx1.jpg);
-    height: 95vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: max(2100px, 180vh);
-    position: relative;
-}
-
-.main .box {
-    height: 95vh;
-    width: 100%;
-    opacity: 0.41;
-    background-color: black;
-    position: absolute;
-    top: 0;
-}
-
-nav {
-    max-width: 80vw;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
-}
-
-nav img {
-    width: 180px;
-    position: relative;
-    z-index: 10;
-}
-
-nav button {
-    position: relative;
-    z-index: 10;
-}
-
-.hero {
-    display: flex;
-    height: 100%;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    gap: 20px;
-    margin: -60px;
-    padding: 29px;
-}
-
-.hero> :nth-child(1) {
-    font-weight: 900;
-    font-size: 48px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    text-align: center;
-}
-
-.hero> :nth-child(2) {
-    font-weight: 400;
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    text-align: center;
-}
-
-.hero> :nth-child(3) {
-    font-weight: 400;
-    font-size: 20px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    text-align: center;
-}
-
-.sepration {
-
-    padding: -5px;
-    height: 8px;
-    background-color: rgb(55, 55, 55);
-}
-
-.btn-t-1 {
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    padding: 6px 35px;
-    background-color: transparent;
-    color: white;
-    border: 1px solid;
-    border-radius: 4px;
-    font-weight: bolder;
-}
-
-.btn-red-1 {
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    background-color: red;
-    padding: 6px 10px;
-    margin: 16px 76px 0px 10px;
-    color: white;
-    border: 1px solid red;
-    border-radius: 6px;
-}
-
-.btn-red-2 {
-    font-weight: 600;
-    font-size: 28px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    background-color: red;
-    padding: 4px 60px 8px 20px;
-    margin: 16px 76px 0px 10px;
-    color: white;
-    border: 1px solid red;
-    border-radius: 6px;
-}
-
-.main input {
-    background-color: rgba(23, 23, 23, 0.6);
-    padding: 21px 160px 10px 90px;
-    margin: 11px 1px 0px 90px;
-    border: 1px solid rgb(139, 139, 139);
-    border-radius: 5px;
-    color: white;
-}
-
-.first {
-    display: flex;
-    justify-content: center;
-    max-width: 50vw;
-    margin: auto;
-    color: white;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.secImg {
-    position: relative;
-}
-
-.secImg img {
-    left: 190px;
-    width: 35vw;
-    position: relative;
-    z-index: 10;
-
-
-}
-
-.secImg video {
-    width: 26vw;
-    position: absolute;
-    top: 77px;
-    left: 274px
-}
-
-section.first>div {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 0px 0px 20px;
-    ;
-
-}
-
-section.first>div :nth-child(1) {
-    font-size: 48px;
-    white-space: nowrap;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: bolder;
-    line-height: 200%;
-
-}
-
-section.first>div :nth-child(2) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-section.first>div :nth-child(3) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.second {
-    display: flex;
-    justify-content: center;
-    max-width: 50vw;
-    margin: auto;
-    color: white;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.secImg1 {
-    position: relative;
-}
-
-.secImg1 img {
-    left: -117px;
-    width: 35vw;
-    position: relative;
-    z-index: 10;
-}
-
-section.second>div :nth-child(1) {
-    font-size: 48px;
-    white-space: nowrap;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: bolder;
-    line-height: 200%;
-
-}
-
-section.second>div :nth-child(2) {
-    font-size: 48px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-section.second>div :nth-child(3) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-section.second>div :nth-child(4) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.secImg2 {
-    position: relative;
-}
-
-.secImg2 img {
-    left: 190px;
-    width: 35vw;
-    position: relative;
-    z-index: 10;
-
-
-}
-
-.secImg2 video {
-    width: 22.2vw;
-    position: absolute;
-    top: 39px;
-    left: 310px
-}
-
-.fourth {
-    display: flex;
-    justify-content: center;
-    max-width: 50vw;
-    margin: auto;
-    color: white;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.secImg4 {
-    position: relative;
-}
-
-.secImg4 img {
-    left: -117px;
-    width: 35vw;
-    position: relative;
-    z-index: 10;
-}
-
-section.fourth>div :nth-child(1) {
-    font-size: 48px;
-    white-space: nowrap;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: bolder;
-    line-height: 200%;
-
-}
-
-section.fourth>div :nth-child(2) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-section.fourth>div :nth-child(3) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-section.fourth>div :nth-child(4) {
-    font-size: 24px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.faq h2 {
-    color: white;
-    text-align: center;
-    font-size: 48px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 900;
-
-}
-
-.faqbox {
-    display: flex;
-    justify-content: space-between;
-    padding: 23px 40px;
-    background-color: rgb(60, 60, 60);
-    margin: 20px 193px;
-    color: white;
-    font-size: 24px;
-}
-
-.faqbox i {
-    padding: 14px;
-}
-
-.faq h4 {
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    font-weight: 500;
-
-}
-
-.faq input {
-    background-color: rgba(23, 23, 23, 0.6);
-    padding: 21px 160px 10px 90px;
-    margin: 11px 10px 0px 420px;
-    border: 1px solid rgb(139, 139, 139);
-    border-radius: 5px;
-    color: white;
-}
-
-footer {
-    color: white;
-}
-
-.footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    color: white;
-    max-width: 60vw;
-    margin: auto;
-}
-
-.footer-item {
-    display: flex;
-    flex-direction: column;
-    color: white;
-}
-
-.footer-item a {
-    color: white;
-    margin: 10px 10px;
-}
-
-.btn-eng-1 {
-    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-    padding: 6px 35px;
-    background-color: transparent;
-    color: white;
-    border: 1px solid;
-    border-radius: 4px;
-    font-weight: bolder;
-    margin: 34px 309px;
-}
-
-.fock {
-    color: white;
-    margin: 0px 310px 5px;
-    padding: 10px 0px 1px;
-}
-
-.la {
-    color: white;
-    margin: 0px 310px
-}
-</style>
 
 <body>
-    <div class="main">
-        <nav>
-            <span><img width="40px" src="netflixlogo.png"></span>
-            <div>
-                <button class="btn-t-1">English &nbsp;<i class="fa-solid fa-sort-down fa-xs"
-                        style="color: #ffffff;"></i></button>
-                <button class="btn-red-1">Sigh In</button>
+<section id="header">
+        <a href="#"><img class="logo" src="img/logo.webp"></a>
+        <div>
+            <?php
+        $count=0;
+         if(isset($_SESSION['cart']))
+        {
+        $count=count($_SESSION['cart']);
+        }?>
+            <ul class="navbar">
+                <li><a class="active" href="index.php">Home</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                
+                <li><a href="sign.php">Sign In</a></li>
+                <li><a class='a' href="mycart.php" ><i class='bx bxs-shopping-bag'></i>My Cart(<?php echo $count ?>)</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super Value Deal</h2>
+        <h1>On all product</h1>
+        <p>Save more with coupons & up to 70% off!</p>
+        <a href="shop.php"><button>Shop now</button></a>
+    </section>
+    <section id="feature" class="section-p1 ">
+        <div class="fe-box">
+            <img src="img/f1.webp" width="100px">
+            <h6>Free Shoping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/f2.png" width="100px">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/f3.png" width="100px">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/f44.png" width="100px" height="140px">
+            <h6>Promotion</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/f5.webp" width="100px" height="140px">
+            <h6>Happy sale</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/f6.png" width="100px">
+            <h6>24/7 Support</h6>
+        </div>
+
+    </section>
+    <section class="section-p1" id="product1">
+        <h2>Feature product</h2>
+        <br><br>
+        <p>Mordern Clothes With New Desigh</p>
+        <div class="pro-contaner">
+            <div class="pro">
+                <img src="product/sh1.avif">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Whites line T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
             </div>
-        </nav>
-        <div class="box"></div>
-        <div class="hero">
-            <span> Unlimited movies, TV shows and more</span>
-            <span>Watch anywhere. Cancel anytime.</span>
-            <span>Ready to watch? Enter your email to create or restart your membership.</span>
-            <div>
-                <input type="text" placeholder="Email Address">
-                <button class="btn-red-2">Get Start &nbsp;<i class="fa-solid fa-chevron-down fa-rotate-270 fa-sm"
-                        style="color: #ffffff;"></i></button>
+            <div class="pro">
+                <img src="product/sh2.jpg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Whites plane T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh3.webp">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Whites flower T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh4.avif">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Sky blue T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh5.avif">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Light Yellow T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh6.jpeg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>light brown T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh7.jpeg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>leaf T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh8.jpg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5> Color Print T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh9.jpg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Blue & Whites T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh10.webp">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Sky Blue & Whites T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh11.jpeg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5> Ful Blue T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
+            </div>
+            <div class="pro">
+                <img src="product/sh12.webp">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Green T-shirt</h5>
+                    <div class="star">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <form action="add.php" method="POST">
+                <button type="submit" name="Add_To_Cart" class='btn btn-info'>Add to Cart</button>
+                <input type="hidden" name="Item_Name" value="Whites line T-shirt">
+                <input type="hidden" name="Price" value="899"></form>
             </div>
         </div>
-        <div class="sepration"></div>
-
-    </div>
-    <dr><br><br><br>
-        <section class="first">
-            <div><span> Enjoy on your TV</span>
-                <span> Watch on smart TVs, PlayStation, Xbox, Chromecast,</span>
-                <span> Apple TV, Blu-ray players and more.</span>
-            </div>
-            <div class="secImg">
-                <img src="tv1.png">
-                <video src="vi.m4v" autoplay loop muted></video>
-
-            </div>
-            <br><br><br><br>
-        </section>
-        <br><br><br><br><br>
-        <div class="sepration"></div>
-
+    </section>
+    <section class="banner">
+        <div class="ban">
+            <h5>Full Time Service</h5>
+            <h2>Upto <span>70% off</span> -All T-Shirt & Accessories</h2>
+            <button>Explore More</button>
         </div>
-        <dr><br><br><br>
-            <section class="second">
-                </div>
-                <div class="secImg1">
-                    <img src="netflix2.jpg">
-
-
-                </div>
-                <div><span> Download your shows</span>
-                    <span> to watch offline</span>
-                    <span> Save your favourites easily and always have something</span>
-                    <span>to watch.</span>
-
-                    <br><br><br><br>
-            </section>
-            <br><br><br><br><br>
-            <div class="sepration"></div>
-            <dr><br><br><br>
-                <section class="first">
-                    <div><span> Watch everywhere</span>
-                        <span> Stream unlimited movies and TV shows on your</span>
-                        <span>phone, tablet, laptop, and TV..</span>
+    </section>
+    <section class="section-p2" id="product2">
+        <br><br>
+        <h2>New Arrival</h2>
+        <br><br>
+        <p></p>
+        <div class="pro-contaner1">
+            <div class="pro1">
+                <img src="product/ac1.webp">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Whites line T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
                     </div>
-                    <div class="secImg2">
-                        <img src="tv2.png">
-                        <video src="vi1.m4v" autoplay loop muted></video>
-
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac2.jpg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Whites plane T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
                     </div>
-                    <br><br><br><br>
-                </section>
-                <br><br><br><br><br>
-                <div class="sepration"></div>
-                <dr><br><br><br>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac3.avif" height="300px">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Whites flower T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac4.jpg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Sky blue T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac5.jpg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Light Yellow T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac6.jpg" height="300px">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>light brown T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac7.jpg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>leaf T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac8.jpg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5> Color Print T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac9.jpeg">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Blue & Whites T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac10.webp">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Sky Blue & Whites T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac11.webp" height="300px">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5> Ful Blue T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro1">
+                <img src="product/ac12.jpg" height="360px">
+                <div class="des1">
+                    <span>adidas</span>
+                    <h5>Green T-shirt</h5>
+                    <div class="star1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="gif">
+        <br><br><br>
+        <img src="product/ba2.gif" width="100%" height="400px">
+    </section>
+    <section class="section-p2" id="product3">
+        <br><br>
+        <h2>Accessories</h2>
+        <br><br>
+        <p></p>
+        <div class="pro-contaner2">
+            <div class="pro2">
+                <img src="product/fa1.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Whites line T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa2.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Whites plane T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa3.jpg" height="300px">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Whites flower T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa4.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Sky blue T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa5.jpg" height="250px">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Light Yellow T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa6.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>light brown T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa7.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>leaf T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa8.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5> Color Print T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa9.jpg" height="250px">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Blue & Whites T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa10.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Sky Blue & Whites T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa11.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5> Ful Blue T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            <div class="pro2">
+                <img src="product/fa12.jpg">
+                <div class="des2">
+                    <span>adidas</span>
+                    <h5>Green T-shirt</h5>
+                    <div class="star2">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <h4>₹899</h4>
+                </div>
+                <a href="cart.html"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="line1">
+            <img src="img/black.webp">
+        </div>
+    </section>
+    <footer class="sectiop-p1">
+        <div class="col">
+            <img src="img/logo.webp" width="90px">
+            <br><br><br> <br><br><br>
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>543, Rampur Jabalpur 'Madhay Pradesh'</p>
+            <p><strong>Phone:</strong>+917162394326, +918475630572</p>
+            <p><strong> Timing & Day:</strong> 24/7</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About Us</h4>
+            <a href="#">About us</a>
+            <a href="#">Delevery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Condition</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sigh In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Watchlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col-install">
+            <h4>Install App</h4>
+            <p>From App Store Or Google Store</p>
+            <div class="row">
+                <img src="img/appstore1.png" width="150px">
+                <img src="img/googlestore.png" width="180px">
+            </div>
+        
+        <p>Secure Payment Gateways</p>
+        <img src="img/pay.jpg" width="280px">
+        </div>
 
-                    <section class="fourth">
-                        </div>
-                        <div class="secImg4">
-                            <img src="netflix3.png">
-
-
-                        </div>
-                        <div><span> Create profiles for kids</span>
-                            <span> Send children on adventures with their favourite</span>
-                            <span> characters in a space made just for them—free with</span>
-                            <span>your membership.</span>
-
-                            <br><br><br><br>
-                    </section>
-                    <br><br><br><br><br>
-                    <div class="sepration"></div>
-                    <dr><br><br><br>
-                        <section class="faq">
-                            <h2>Frequently Asked Questions</h2>
-                            <div class="faqbox">
-                                <span>What is Netflix?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <div class="faqbox">
-                                <span>How much does Netflix cost?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <div class="faqbox">
-                                <span>Where can I watch?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <div class="faqbox">
-                                <span>How do I cancel?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <div class="faqbox">
-                                <span>What can I watch on Netflix?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <div class="faqbox">
-                                <span>Is Netflix good for kids?</span>
-                                <i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i>
-                            </div>
-                            <br>
-                            <h4>Ready to watch? Enter your email to create or restart your membership.</h4>
-                            <div>
-                                <input type="text" placeholder="Email Address">
-                                <button class="btn-red-2">Get Start &nbsp;<i
-                                        class="fa-solid fa-chevron-down fa-rotate-270 fa-sm"
-                                        style="color: #ffffff;"></i></button>
-                            </div>
-                        </section>
-                        <br><br><br><br>
-                        <div class="sepration"></div>
-                        <dr><br><br><br>
-                            <section>
-                                <footer>
-                                    <div class="fock">
-                                        <span>Questions? Call 000-800-919-1694</span>
-                                    </div>
-                                    <div class="footer">
-                                        <div class="footer-item">
-                                            <a href="#">FAQ</a>
-                                            <a href="#">Investor Relation</a>
-                                            <a href="#">Privacy</a>
-                                            <a href="#">Speedtest</a>
-                                        </div>
-                                        <div class="footer-item">
-                                            <a href="#">FAQ</a>
-                                            <a href="#">Investor Relation</a>
-                                            <a href="#">Privacy</a>
-                                            <a href="#">Speedtest</a>
-                                        </div>
-                                        <div class="footer-item">
-                                            <a href="#">FAQ</a>
-                                            <a href="#">Investor Relation</a>
-                                            <a href="#">Privacy</a>
-                                            <a href="#">Speedtest</a>
-                                        </div>
-                                        <div class="footer-item">
-                                            <a href="#">FAQ</a>
-                                            <a href="#">Investor Relation</a>
-                                            <a href="#">Privacy</a>
-                                            <a href="#">Speedtest</a>
-                                        </div>
-                                    </div>
-                                </footer>
-                                <div>
-                                    <button class="btn-eng-1">English &nbsp;<i class="fa-solid fa-sort-down fa-xs"
-                                            style="color: #ffffff;"></i></button>
-                                </div>
-                                <div class="la">
-                                    <span>Netflix India</span>
-                                </div>
-
-                            </section>
-                            <dr><br><br><br>
+    </footer>
 </body>
+
 
 </html>
